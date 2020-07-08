@@ -24,7 +24,6 @@ class CountryRecyclerAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>()
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): RecyclerView.ViewHolder {
         var view: View?
-        Log.d("page_Name_","TrackAction:onCreateViewHolder")
         return when (i) {
             LOADING_TYPE -> {
                 view = LayoutInflater.from(viewGroup.context).inflate(R.layout.layout_loading_list_item, viewGroup, false)
