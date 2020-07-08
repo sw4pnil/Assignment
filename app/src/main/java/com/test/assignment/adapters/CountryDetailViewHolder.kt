@@ -11,7 +11,7 @@ import com.test.assignment.R
  * ViewHolder for Country List items
  */
 
-class CountryDetailViewHolder(itemView: View, var onCountryListener: OnCountryClickListener) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+class CountryDetailViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
     @JvmField
     var title: TextView = itemView.findViewById(R.id.title)
     @JvmField

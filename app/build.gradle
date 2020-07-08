@@ -40,6 +40,10 @@ android {
             buildConfigField "boolean", "ROOTED_BUILD", "true"
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {

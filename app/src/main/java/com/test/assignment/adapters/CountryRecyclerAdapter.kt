@@ -1,6 +1,7 @@
 package com.test.assignment.adapters
 
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,11 +18,13 @@ import java.util.*
  */
 
 
-class CountryRecyclerAdapter(private val mOnCountryClickListener: OnCountryClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var mCategory: List<Country>
+class CountryRecyclerAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    //private var mCategory: List<Country>
+    private var mCategory: MutableList<Country>
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): RecyclerView.ViewHolder {
         var view: View?
+        Log.d("page_Name_","TrackAction:onCreateViewHolder")
         return when (i) {
             LOADING_TYPE -> {
                 view = LayoutInflater.from(viewGroup.context).inflate(R.layout.layout_loading_list_item, viewGroup, false)
@@ -29,7 +32,7 @@ class CountryRecyclerAdapter(private val mOnCountryClickListener: OnCountryClick
             }
             else -> {
                 view = LayoutInflater.from(viewGroup.context).inflate(R.layout.layout_country_list_item, viewGroup, false)
-                CountryDetailViewHolder(view, mOnCountryClickListener)
+                CountryDetailViewHolder(view)
             }
         }
     }
@@ -83,8 +86,9 @@ class CountryRecyclerAdapter(private val mOnCountryClickListener: OnCountryClick
             return false
         }
 
-    fun setRecipes(recipes: List<Country>) {
-        mCategory = recipes
+    fun setRecipes(recipes: MutableList<Country>) {
+        mCategory.clear()
+        mCategory.addAll(recipes)
         notifyDataSetChanged()
     }
 

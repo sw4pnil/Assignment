@@ -1,5 +1,6 @@
 package com.test.assignment.viewmodels
 
+import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.test.assignment.models.Country
@@ -18,6 +19,9 @@ class CountryListViewModel : ViewModel() {
         get() = mCountryRepository?.categoryName
     val countryName : LiveData<String?>?
         get() = mCountryRepository?.countryName
+
+
+    var listOfData = ObservableField<MutableList<Country>>()
 
     fun countryDetail() {
         isViewingRecipes = true
